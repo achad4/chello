@@ -1,5 +1,5 @@
 .sidebar-nav {
-  width: 180px;
+  width: 100px;
   background: #9ba070;
   height: 100%;
   float: left;
@@ -27,7 +27,8 @@
 
 .sidebar-nav ul.submenu li {
     cursor: pointer;
-    padding: 10px 15px;
+    padding: 10px 0px;
+    width: 100%;
 }
 
 .sidebar-nav ul.submenu li a, 
