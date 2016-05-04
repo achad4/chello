@@ -79,7 +79,7 @@ a:hover {
 }
 
 .sidebar-nav+.main-content {
-  margin-left: 180px;
+  margin-left: 0px;
 }
 
 .main-content {
@@ -96,6 +96,7 @@ a:hover {
 
 /* subitem css */
 a.subitem {
+  width: 240px;
   background: white;
   min-height: 120px;
   text-decoration: none;
@@ -108,7 +109,8 @@ a.subitem {
 }
 
 a.subitem .thumbnail_wrapper {
-  height: 120px;
+  height: 240px;
+  width: 240px;
   width: 100%;
   position: relative;
 }
@@ -127,6 +129,8 @@ a.subitem .info {
   overflow:hidden;
   text-overflow:ellipsis;
   white-space:nowrap;
+  height: 100px;
+  width: 240px;
 }
 
 a.subitem .info strong {
@@ -175,7 +179,7 @@ a.subitem:hover {
   box-shadow: none;
   border-color: #9ba070;
   color: #717350;
-  width: 500px;
+  width: 1000px;
 }
 .navbar-form.search-form .form-control:focus, .navbar-form.search-form .tinynav:focus {
   border-color: #717350;

@@ -24,13 +24,13 @@
 		         </div>
 		      </form>
 		    </div>
-		    <a class="btn btn-primary" ui-sref="createPlaylist">
+		    <a class="btn btn-primary" ui-sref="createPlaylist" style="width: 160px;">
 		    <span class="glyphicon glyphicon-plus"></span>
 	          New playlist
 	        </a>
 	    </div>
 <!-- 	    TODO: fix these padding numbers
- -->	 <section class="col-md-8 col-md-offset-2" style="padding-left: 50px; padding-top: 15px">
+ -->	<div class="pull-left" style="padding-top: 20px; padding-left: 50px; width: 100%;">
 
 		<div id="playlists">
 			<div class="query-string" ng-if="query">Showing results for {{query}}:</div>
@@ -40,7 +40,7 @@
 		      ng-repeat="playlist in playlists">
 		    </div>
 		   	<div ng-if="playlists.length === 0">No playlist to display</div>
-		  </section>
+		 </div>
 		</div>
 	</section>
 </div>
