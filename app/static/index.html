@@ -30,15 +30,6 @@
 </head>
 
 <body class="ng-cloak" ng-controller="MainController">
- <!--  <nav class="navbar navbar-fixed-top" role="navigation">
-   <div>
-     <div class="navbar-header">
-       <a class="navbar-brand" ui-sref="playlists"><img src="../app/images/mango-logo.png" /></a>
-     </div>
-
-     
-   </div>
-  </nav> -->
   <div class="music-player" ng-controller="PlaylistController" ng-if="$root.currentSong || ($root.remaining_playcount !== undefined && $root.remaining_playcount === 0)">
     <ul style="padding: 0;">
       <li class="current-song">

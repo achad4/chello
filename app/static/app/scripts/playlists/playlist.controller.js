@@ -62,7 +62,7 @@ angular.module('mango').controller('PlaylistController', ['$scope', '$stateParam
 			Playlists.getPlaylist($stateParams.playlistId)
 			.then(function(playlist) {
 				$scope.playlist = playlist;
-				// console.log(playlist);
+				console.log(playlist);
 			}, function(err) {
 				// console.log(err);
 			});

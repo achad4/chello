@@ -2,19 +2,40 @@
 </div>
 <div class="main-content" ng-init="findOne()">
 
-
-	<section class="col-md-8 col-md-offset-2" ng-if="playlist" style="display : inline-block;">
-		<div class="thumbnail_wrapper">
-    		<img ng-src="{{playlist.thumbnail}}" />
+	<section class="col-md-4 col-md-offset-2" ng-if="playlist" style="padding: 60px">
+		
+		<div class="thumbnail_wrapper" ng-if="playlist.songs[0].thumbnail">
+    		<img ng-src="{{ playlist.songs[0].thumbnail }}" style="height: 200px; width: 200px;"/>
   		</div>
 
-<!-- 		<a class="btn btn-primary" ui-sref="createPlaylist" style="width: 160px;">
-		    <span class="glyphicon glyphicon-plus"></span>
-	          New playlist
-	    </a> -->
+  		<div class="thumbnail_wrapper" ng-if="!playlist.songs[0].thumbnail">
+    		<h2>NONE</h2>
+  		</div>
+  		<h2>{{ playlist.name }}</h2>
+
+  		<div class="container" style="padding: 5px">
+		<a class="btn btn-primary" ui-sref="createPlaylist" style="height: 36px; width: 200px;">
+		    <span class="glyphicon glyphicon-play"></span>
+	          Play all
+	    </a>
+	    </div>
+	    <div class="container" style="padding: 5px">
+	    <a class="btn btn-primary" ui-sref="createPlaylist" style="height: 36px; width: 200px;">
+		    <span class="glyphicon glyphicon-music"></span>
+	          Add song
+	    </a>
+	    </div>
+	    <div class="container" style="padding: 5px">
+	    <a class="btn btn-primary" ui-sref="createPlaylist" style="height: 36px; width: 200px;">
+		    <span class="glyphicon glyphicon-user"></span>
+	          Manage collaborators
+	    </a>
+	    </div>
+	    
 
 	</section>
-	<section class="col-md-8 col-md-offset-2" ng-if="playlist" style="display : inline-block;">
+
+	<section class="col-md-4 col-md-offset-2" ng-if="playlist">
 		<h2 class="page-header">
 			<div class="pull-left">{{playlist.name}}</div>
 			<div style="position:relative; margin-left: 20px; display: inline-block; font-size: 14px;">
