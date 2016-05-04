@@ -18,15 +18,27 @@
   <link rel="stylesheet" href="../app/lib/bootstrap/dist/css/bootstrap.css"></link>
   <link rel="stylesheet" href="../app/lib/bootstrap/dist/css/bootstrap-theme.css"></link>
   <link rel="stylesheet" href="../app/lib/angular-ui-select/select.min.css"></link>
+  <link rel="stylesheet" href="../app/lib/angular-ui-select/select2.css"></link>
+  <link rel="stylesheet" href="../app/styles/bootstrap_override.css"></link>
+  <link rel="stylesheet" href="../app/styles/submenu.css"></link>
+  <link rel="stylesheet" href="../app/styles/header.css"></link>
+  <link rel="stylesheet" href="../app/styles/buttons.css"></link>
+  <link rel="stylesheet" href="../app/styles/playlist.css"></link>
+  <link rel="stylesheet" href="../app/styles/profile.css"></link>
+  <link rel="stylesheet" href="../app/styles/main.css"></link>
+
 </head>
+
 <body class="ng-cloak" ng-controller="MainController">
-    <nav class="navbar navbar-fixed-top" role="navigation">
+ <!--  <nav class="navbar navbar-fixed-top" role="navigation">
    <div>
      <div class="navbar-header">
        <a class="navbar-brand" ui-sref="playlists"><img src="../app/images/mango-logo.png" /></a>
      </div>
+
+     
    </div>
-  </nav>
+  </nav> -->
   <div class="music-player" ng-controller="PlaylistController" ng-if="$root.currentSong || ($root.remaining_playcount !== undefined && $root.remaining_playcount === 0)">
     <ul style="padding: 0;">
       <li class="current-song">
@@ -69,10 +81,37 @@
   <script type="text/javascript" src="../app/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 
   <script type="text/javascript" src="../app/scripts/app.js"></script>
-  <script type="text/javascript" src="../app/scripts/home/home.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/main.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/header.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/navbar.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/auth.interceptor.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/time.filter.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/confirm.directive.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/navbar.directive.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/modal.service.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/props.filter.js"></script>
+  <script type="text/javascript" src="../app/scripts/common/datepicker.directive.js"></script>
+  <script type="text/javascript" src="../app/scripts/auth/auth.service.js"></script>
   <script type="text/javascript" src="../app/scripts/auth/login.controller.js"></script>
-  <script type="text/javascript" src="../app/scripts/auth/signup.controller.js"></script>
   <script type="text/javascript" src="../app/scripts/auth/logout.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/auth/signup.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/home/home.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/songs/song.service.js"></script>
+  <script type="text/javascript" src="../app/scripts/songs/songs.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/songs/song.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/songs/song.directive.js"></script>
+  <script type="text/javascript" src="../app/scripts/search/search.service.js"></script>
+  <script type="text/javascript" src="../app/scripts/settings/account.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/settings/subscription.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/playlists/playlists.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/playlists/playlist.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/playlists/playlist.service.js"></script>
+  <script type="text/javascript" src="../app/scripts/playlists/playlist.directive.js"></script>
+  <script type="text/javascript" src="../app/scripts/player/player.service.js"></script>
+  <script type="text/javascript" src="../app/scripts/users/users.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/users/user.controller.js"></script>
+  <script type="text/javascript" src="../app/scripts/users/user.service.js"></script>
+  <script type="text/javascript" src="../app/scripts/users/user.directive.js"></script>
 
 
 </body>

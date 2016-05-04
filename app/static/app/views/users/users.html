@@ -1,0 +1,35 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content">
+	<section class="col-md-8 col-md-offset-2">
+		<h2 class="page-header">
+		  Users
+		  <div class="pull-right">
+        <form class="navbar-form search-form" role="search" ng-submit="search($event, q)">
+	        <div class="form-group">
+	          <input type="search" 
+	                id="search_q" 
+	                name="q" 
+	                ng-model="q"
+	                class="form-control" 
+	                placeholder="Search users">
+
+	          <button type="submit">
+	            <i class="glyphicon glyphicon-search" style="font-size:20px;"></i>
+	          </button>
+	         </div>
+	      </form>
+	    </div>
+		</h2>
+		<div id="users">
+			<div class="query-string" ng-if="query">Showing results for {{query}}:</div>
+		  <section class="users">
+		    <div user-item 
+		      data-user="user" 
+		      ng-repeat="user in users">
+		    </div>
+		    <div ng-if="users.length === 0">No user to display</div>
+		  </section>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,32 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content" ng-init="findOne()">
+	<section class="col-md-8 col-md-offset-2" ng-if="user">
+		<h2 class="page-header">
+			<div class="pull-left">{{ user.first_name }} {{ user.last_name }}</div>
+		  <div style="position:relative; margin-left: 20px; display: inline-block; font-size: 14px;">
+        <span>{{ user.playlists.length }} playlists</span>
+        <a ui-sref="viewFollowers({userId: user.id})" style="margin-left:10px;">{{user.follower_count}} followers</a>
+        <a ui-sref="viewFollowing({userId: user.id})" style="margin-left:10px;">{{user.following_count}} following</a>
+		  </div>
+      <div class="pull-right" ng-if="currentUser.username == user.username">
+        <a class="btn btn-primary" ui-sref="createPlaylist">
+          Add new playlist
+        </a>
+      </div>
+      <div class="pull-right" ng-if="currentUser.username != user.username">
+      	<a class="btn btn-primary" href ng-if="user.is_following" ng-click="unfollow()">Unfollow</a>
+      	<a class="btn btn-primary" href ng-if="!user.is_following" ng-click="follow()">Follow</a>
+      </div>
+		</h2>
+		<div id="playlists">
+		  <section class="playlists">
+		    <div playlist-item 
+		      data-playlist="playlist" 
+		      ng-repeat="playlist in user.playlists track by $index">
+		    </div>
+		    <div ng-if="user.playlists.length === 0">No playlist to display</div>
+		  </section>
+		</div>
+	</section>
+</div>

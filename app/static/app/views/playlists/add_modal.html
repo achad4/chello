@@ -1,0 +1,35 @@
+<div id="search-modal" class="row" style="margin: 10px 0;" ng-init="getSongs()"> 
+  <div class="col-md-12">
+    <button class="pull-right btn btn-danger" id="close-modal" ng-click="$dismiss()">Close</button>
+    <div>
+      <h2 class="page-header">
+        Add Songs
+      </h2>
+      <div id="search-container">  
+        <form role="form" id="form-horizontal" ng-submit="addSongs()">
+          <div class="row">
+            <div class="col-md-8" ng-if="songs">
+              <ui-select multiple ng-model="select.songs" theme="select2">
+                <ui-select-match placeholder="Select songs...">{{$item.title}}</ui-select-match>
+                <ui-select-choices repeat="a in songs | propsFilter: {title: $select.search} track by a.id">
+                  <div>{{a.title}} by <span ng-repeat="artist in a.artists">{{ artist.name }}<span ng-if="!$last">, </span></span></div>
+                </ui-select-choices>
+              </ui-select>
+            </div>
+            <div class="col-md-8" ng-if="!songs">
+              Loading songs
+            </div>
+            <div class="col-md-4">
+              Song not found?<br /><a ng-click="redirectToAdd()">Add song</a>
+            </div>
+          </div>
+          <div class="row" style="margin-top: 20px;">
+            <div class="col-md-3 col-md-offset-9">
+              <button ng-click="addSongs()" type="submit" id="search-btn" class="btn btn-primary col-md-12">Add</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

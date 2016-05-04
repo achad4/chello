@@ -1,0 +1,74 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content" ng-init="getCurrentUser(); getSubscription()">
+  <div class="col-md-10 col-md-offset-1 general_info" ng-if="subscription">
+  	<form class="form-horizontal" role="form">
+  		<div class="form-group">
+        <label class="control-label col-md-6">
+          Subscription Information
+        </label>
+        <div class="col-md-3 col-md-offset-3">
+          <button type="submit" ng-click="subscribe()" class="btn btn-block btn-primary btn-settings" ng-show="!subscription.subscribed">
+            Subscribe
+          </button>
+          <button type="submit" ng-click="unsubscribe()" class="btn btn-block btn-primary btn-settings" ng-show="subscription.subscribed">
+            Unsubscribe
+        </div>
+      </div>
+      <div class="form-group error" ng-if="error">
+        {{error}}
+      </div>
+      <div class="form-group">
+        <label for="username" class="control-label col-md-5">
+          User is <span ng-if="!subscription.subscribed">not</span> subscribed
+        </label>
+      </div>
+
+      <div class="form-group" ng-if="subscription.effective_until">
+        <label for="effective_until" class="control-label col-md-5">
+          Effective until
+        </label>
+        <div class="col-md-7">
+          <input id="effective_until" 
+                name="effective_until" 
+                type="text" 
+                class="form-control" 
+                ng-model="subscription.effective_until"
+                placeholder="Effective until"
+                disabled>
+        </div>
+      </div>
+
+      <div class="form-group" ng-if="subscription.remaining_playcount">
+        <label for="remaining_playcount" class="control-label col-md-5">
+          Remaining playcount
+        </label>
+        <div class="col-md-7">
+          <input id="remaining_playcount" 
+                name="remaining_playcount" 
+                type="text" 
+                class="form-control" 
+                ng-model="subscription.remaining_playcount"
+                placeholder="Remaining playcount"
+                disabled>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="member_since" class="control-label col-md-5">
+          Member since
+        </label>
+        <div class="col-md-7">
+          <input id="member_since" 
+                name="member_since" 
+                type="text" 
+                class="form-control" 
+                ng-model="user.created_at"
+                placeholder="Member since"
+                disabled>
+        </div>
+      </div>
+    </form>
+  </div>
+    <!-- </div> -->
+</div>

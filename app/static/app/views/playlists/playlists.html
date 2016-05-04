@@ -1,0 +1,41 @@
+<div side-nav class="sidebar-nav">
+
+</div>
+<div class="main-content">
+	<section class="col-md-8 col-md-offset-2">
+<!-- 		<h2 class="page-header">
+		  Playlists -->
+		<div class="pull-right">
+        <a class="btn btn-primary" ui-sref="createPlaylist">
+          New playlist
+        </a>
+      </div>
+      <div class="pull-right">
+        <form class="navbar-form search-form" role="search" ng-submit="search($event, q)">
+	        <div class="form-group">
+	          <input type="search" 
+	                id="search_q" 
+	                name="q" 
+	                ng-model="q"
+	                class="form-control" 
+	                placeholder="Search playlists">
+
+	          <button type="submit">
+	            <i class="glyphicon glyphicon-search" style="font-size:20px;"></i>
+	          </button>
+	         </div>
+	      </form>
+	    </div>
+		</h2>
+		<div id="playlists">
+			<div class="query-string" ng-if="query">Showing results for {{query}}:</div>
+		  <section class="playlists">
+		    <div playlist-item 
+		      data-playlist="playlist" 
+		      ng-repeat="playlist in playlists">
+		    </div>
+		   	<div ng-if="playlists.length === 0">No playlist to display</div>
+		  </section>
+		</div>
+	</section>
+</div>

@@ -1,0 +1,24 @@
+<a class="subitem col-md-3 col-sm-3 col-xs-3" ng-href="{{href}}">
+  <div class="thumbnail_wrapper">
+    <img ng-src="{{playlist.thumbnail}}" />
+  </div>
+    <div class="info">
+      <ul>
+        <li>
+          <strong class="playlist-title">
+            {{ playlist.name }}
+          </strong>
+        </li>
+        <li>
+          <span>
+            by {{ playlist.first_name }} {{ playlist.last_name }}
+          </span>
+        </li>
+        <li>
+          <span class="playlist-count">
+            {{ playlist.song_count }} songs
+          </span>
+        </li>
+      </ul>
+    </div>
+</a>

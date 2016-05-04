@@ -1,0 +1,67 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content" ng-init="findOne()">
+	<section class="col-md-8 col-md-offset-2" ng-if="playlist">
+		<h2 class="page-header">
+			<div class="pull-left">{{playlist.name}}</div>
+			<div style="position:relative; margin-left: 20px; display: inline-block; font-size: 14px;">
+        <span>by <a ui-sref="viewUser({userId:playlist.user_id})">{{ playlist.first_name }} {{ playlist.last_name }}</a></span>
+		  </div>
+			<button ng-if="!$root.playing || $root.currentPlaylist.id !== playlist.id" class="player-btn btn" style="position:relative; margin-left: 20px;" ng-click="play()">
+				<div >
+			  	<span class="player-icon glyphicon glyphicon-play"></span>
+			  	<span>Play all</span>
+			  </div>
+		  </button>
+		  <button ng-if="$root.playing && $root.currentPlaylist.id === playlist.id" class="player-btn btn" style="position:relative; margin-left: 20px;" ng-click="pause()">
+				<div >
+			  	<span class="player-icon glyphicon glyphicon-pause"></span>
+			  	<span>Pause</span>
+			  </div>
+		  </button>
+		  <div class="pull-right" ng-if="playlist.username == currentUser.username">
+        <a class="search-button btn btn-primary" ng-click="openModal()">
+          Add song
+        </a>
+				<a class="btn btn-primary" ui-sref="editPlaylist({ playlistId: playlist.id })">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" confirm-delete title="playlist.name" confirmed-click="deletePlaylist()">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+		</h2>
+		<div ng-if="playlist.not_added !== undefined && playlist.not_added === true" class="error">Duplicate songs were not added</div>
+		<div class="song-detail" ng-repeat="song in playlist.songs" ng-click="playSong($index)" ng-class="{active: $root.currentSong.url === song.url}">
+			<div class="song-thumbnail sm">
+        <img ng-src="{{ song.thumbnail }}">
+        <div class="play-button" ng-if="$root.currentSong.url !== song.url || ($root.currentSong.url === song.url && !$root.playing)">
+        	<span class="player-icon glyphicon glyphicon-play"></span>
+        </div>
+        <div class="pause-button" ng-if="$root.currentSong.url === song.url && $root.playing">
+        	<span class="player-icon glyphicon glyphicon-pause"></span>
+        </div>
+        <div class="song-duration">
+        	{{ song.duration | secondsToDateTime | date:'m:ss' }}
+        </div>
+      </div>
+
+	    <ul class="info">
+	      <li>
+	        <strong class="song-title">
+	          <span ng-repeat="artist in song.artists">{{ artist.name }}<span ng-if="!$last">, </span><span ng-if="$last"> - </span></span> {{ song.title }}
+	        </strong>
+	      </li>
+	    </ul>
+      <div class="pull-right">
+      	<a class="btn btn-primary" data-ng-click="viewDetails($event, song.id)">
+					Go to details
+				</a>
+				<a ng-if="getCurrentUser().id === playlist.user_id" class="btn btn-primary" data-ng-click="deleteSong($event, song.id, $index)">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+		</div>
+		<div ng-if="playlist.songs.length === 0">No song to display</div>
+	</section>
+</div>

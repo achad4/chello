@@ -1,0 +1,43 @@
+.general_info {
+	border-radius: 8px;
+	background: #efefef;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	color: #7e7d7d;
+}
+
+.general_info .control-label {
+	text-align: left;
+}
+
+.general_info textarea {
+	resize: vertical;
+	width: 100%;
+}
+
+.general_info .form-group {
+	min-height: 70px;
+	border-style: solid;
+  border-color: #b0b8bf;
+  border-width: 1px 1px 0 1px;
+  margin-bottom: 0;
+  padding: 20px;
+}
+
+.general_info .password-button {
+	cursor: pointer;
+	padding: 5px 0;
+}
+
+.general_info .form-group:first-of-type {
+  border-radius: 8px 8px 0 0;
+  background: #6d6d6d;
+  padding: 10px 20px;
+  min-height: 50px;
+  color: #fffef9;
+}
+
+.general_info .form-group:last-child {
+  border-radius: 0 0 8px 8px;
+  border-bottom-width: 1px;
+}

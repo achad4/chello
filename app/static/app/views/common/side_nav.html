@@ -1,0 +1,30 @@
+<ul ng-init="getUsername()">
+	<li class="channel_menu">
+		<div class="menu_title">CHANNEL</div>
+		<ul class="submenu">
+			<li ui-sref="playlists" ng-class="{'active':isActive('/playlists')}">
+				<a><span class="glyphicon glyphicon-headphones"></span> Playlists</a>
+			</li>
+			<li ui-sref="users" ng-class="{'active':isActive('/users')}">
+				<a><span class="glyphicon glyphicon-user"></span> Users</a>
+			</li>
+		</ul>
+		<div class="menu_title account_menu">ACCOUNT</div>
+		<ul class="submenu">
+			<li ui-sref="viewUser({userId: currentUser.id})" ng-class="{'active':isActive('/users/'+currentUser.id)}">
+				<a><span class="glyphicon glyphicon-home"></span> Profile</a>
+			</li>
+			<li ui-sref="subscription" ui-sref-active="active">
+				<a><span class="glyphicon glyphicon-credit-card"></span> Subscription</a>
+			</li>
+			<li ui-sref="account" ui-sref-active="active">
+				<a><span class="glyphicon glyphicon-cog"></span> Settings</a>
+			</li>
+		</ul>
+	</li>
+
+	<li class="logout_menu">
+		<div class="user_fullname">{{currentUser.first_name}} {{currentUser.last_name}}</div>
+		<div class="logout" ng-click="logout()"><span class="glyphicon glyphicon-off"></span> Logout</div>
+	</li>
+</ul>

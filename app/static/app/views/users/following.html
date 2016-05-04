@@ -1,0 +1,17 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content" ng-init="findOne(); getFollowing()">
+	<section class="col-md-8 col-md-offset-2" ng-if="user">
+		<h2 class="page-header">
+		  {{user.first_name}} {{user.last_name}}'s Following
+		</h2>
+		<div id="users">
+		  <section class="users">
+		    <div user-item 
+		      data-user="u" 
+		      ng-repeat="u in following track by $index">
+		    </div>
+		  </section>
+		</div>
+	</section>
+</div>

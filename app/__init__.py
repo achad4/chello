@@ -32,7 +32,7 @@ from app.controllers.album_controller import AlbumController, AlbumException
 authentication = Authentication()
 user_controller = UserController()
 playlist_controller = PlaylistController()
-# song_controller = SongController()
+song_controller = SongController()
 country_controller = CountryController()
 artist_controller = ArtistController()
 album_controller = AlbumController()

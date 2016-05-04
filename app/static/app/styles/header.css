@@ -1,0 +1,21 @@
+.navbar {
+	border-bottom: 1px solid #ebebeb;
+	background: white;
+	min-height: 70px;
+	margin: 0;
+}
+
+.navbar-brand {
+	padding: 0;
+	position: absolute;
+  left: 50%;
+  margin-left: -100px !important;
+  display: block;
+  height: 69px;
+  width: auto;
+}
+
+.navbar-brand img {
+  height: 100%;
+  width: auto;
+}

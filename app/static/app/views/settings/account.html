@@ -1,0 +1,78 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content" ng-init="getCurrentUser()">
+    <!-- <div class="row"> -->
+  <div class="col-md-10 col-md-offset-1 general_info">
+  	<form class="form-horizontal" role="form" ng-submit="save()">
+  		<div class="form-group">
+        <label class="control-label col-md-6">
+          Account Information
+        </label>
+        <div class="col-md-3 col-md-offset-3">
+          <button type="submit" class="btn btn-block btn-primary btn-settings" ng-show="!saving">
+            Save changes
+          </button>
+          <button type="submit" class="btn btn-block btn-primary btn-settings" ng-show="saving" ng-disabled="true">
+            Saving changes
+          </button>
+        </div>
+      </div>
+      <div class="form-group error" ng-if="error">
+        {{error}}
+      </div>
+      <div class="form-group">
+        <label for="username" class="control-label col-md-5">
+          Username
+        </label>
+        <div class="col-md-7">
+          <input id="username" 
+                name="username" 
+                type="text" 
+                class="form-control" 
+                ng-model="user.username"
+                placeholder="Username">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="first_name" class="control-label col-md-5">
+          First name
+        </label>
+        <div class="col-md-7">
+          <input id="first_name" 
+                name="first_name" 
+                type="text" 
+                class="form-control" 
+                ng-model="user.first_name"
+                placeholder="First name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="last_name" class="control-label col-md-5">
+          Last name
+        </label>
+        <div class="col-md-7">
+          <input id="last_name" 
+                name="last_name" 
+                type="text" 
+                class="form-control" 
+                ng-model="user.last_name"
+                placeholder="Last name">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password" class="control-label col-md-5">
+          Change password
+        </label>
+        <div class="col-md-4">
+          <div class="password-button" ng-click="changePassword()">
+            Click here to change password
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+    <!-- </div> -->
+</div>
