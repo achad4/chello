@@ -1,0 +1,27 @@
+<a class="subitem col-md-3 col-sm-3 col-xs-3" ng-href="{{href}}">
+  <div class="thumbnail_wrapper">
+    <img ng-src="{{song.thumbnail}}" />
+  </div>
+  <div class="info">
+    <ul>
+      <li>
+        <strong class="song-title">
+          {{ song.title }}
+        </strong>
+      </li>
+      <li>
+        <span class="song-duration">
+          {{ song.duration | secondsToDateTime | date:'m:ss' }}
+        </span>
+      </li>
+      <li ng-if="song.artists">
+        <span class="artist-name">
+          by <span ng-repeat="artist in song.artists">{{ artist.name }}<span ng-if="!$last">, </span></span>
+        </span>
+      </li>
+      <li>
+        <span class="song-genre" ng-repeat="genre in song.genres">{{ genre.name }}<span ng-if="!$last">, </span></span>
+      </li>
+    </ul>
+  </div>
+</a>

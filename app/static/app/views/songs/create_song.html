@@ -1,0 +1,129 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content" ng-init="getAlbums(); getGenres();">
+  <section class="col-md-6 col-md-offset-3">
+    <h2 class="page-header">
+      Add Song
+    </h2>
+
+    <form class="form-horizontal" role="form" novalidate ng-submit="create()">
+      <div class="error">{{ error }}</div>
+      <div class="form-group">
+        <div class="col-md-12">
+          <a class="search-button btn btn-block btn-info" ng-click="openModal()">
+            Import from Youtube or Soundcloud
+          </a>
+        </div>
+      </div>
+      <div ng-if="song.title">
+        <div class="form-group">
+          <label for="title" class="control-label col-md-3">
+            Title
+          </label>
+          <div class="col-md-9">
+            <input id="title" 
+                  name="title" 
+                  type="text" 
+                  class="form-control" 
+                  ng-model="song.title"
+                  placeholder="Title">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="duration" class="control-label col-md-3">
+            Duration
+          </label>
+          <div class="col-md-9">
+            <input id="duration" 
+                  name="duration" 
+                  type="text" 
+                  class="form-control" 
+                  ng-model="duration"
+                  placeholder="Duration"
+                  disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="url" class="control-label col-md-3">
+            URL
+          </label>
+          <div class="col-md-9">
+            <input id="url" 
+                  name="url" 
+                  type="text" 
+                  class="form-control" 
+                  ng-model="song.url"
+                  placeholder="URL"
+                  disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="source" class="control-label col-md-3">
+            Source
+          </label>
+          <div class="col-md-9">
+            <input id="source" 
+                  name="source" 
+                  type="text" 
+                  class="form-control" 
+                  ng-model="song.source"
+                  placeholder="Source"
+                  disabled>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="thumbnail" class="control-label col-md-3">
+            Thumbnail
+          </label>
+          <div class="col-md-9">
+            <input id="thumbnail" 
+                  name="thumbnail" 
+                  type="text" 
+                  class="form-control" 
+                  ng-model="song.thumbnail"
+                  placeholder="Thumbnail">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="albums" class="control-label col-md-3">
+            Album
+          </label>
+          <div class="col-md-5">
+            <ui-select ng-model="song.album" theme="select2">
+              <ui-select-match placeholder="Select album...">{{$select.selected.title}}</ui-select-match>
+              <ui-select-choices repeat="a in albums | propsFilter: {title: $select.search} track by a.id">
+                <div>{{a.title}} by <span ng-repeat="artist in a.artists">{{ artist.name }}<span ng-if="!$last">, </span></span></div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+          <div class="col-md-4">
+            Album not found?<br /><a ui-sref="createAlbum">Add album</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="genres" class="control-label col-md-3">
+            Genres
+          </label>
+          <div class="col-md-5">
+            <ui-select multiple ng-model="song.genres" theme="select2">
+              <ui-select-match placeholder="Select genres...">{{$item.name}}</ui-select-match>
+              <ui-select-choices repeat="g in genres | propsFilter: {name: $select.search} track by g.id">
+                <div ng-bind="g.name"></div>
+              </ui-select-choices>
+            </ui-select>
+          </div>
+          <div class="col-md-4">
+            Genre not found?<br /><a ui-sref="createGenre">Add genre</a>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-md-5 col-md-offset-7">
+            <button type="submit" class="btn btn-primary btn-block btn-normal">
+              Create
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </section>
+</div>

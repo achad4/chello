@@ -1,0 +1,97 @@
+<div side-nav class="sidebar-nav">
+</div>
+<div class="main-content" ng-init="findOne()">
+	<section class="col-md-8 col-md-offset-2" ng-if="song.title">
+		<h2 class="page-header">
+			<div class="pull-left">{{ song.title }}</div>
+      <div style="position:relative; margin-left: 20px; display: inline-block; font-size: 14px;">
+      </div>
+      <button ng-if="!$root.playing || $root.currentSong.id !== song.id" class="player-btn btn" style="position:relative; margin-left: 20px;" ng-click="play()">
+        <div >
+          <span class="player-icon glyphicon glyphicon-play"></span>
+          <span>Play song</span>
+        </div>
+      </button>
+      <button ng-if="$root.playing && $root.currentSong.id === song.id" class="player-btn btn" style="position:relative; margin-left: 20px;" ng-click="pause()">
+        <div >
+          <span class="player-icon glyphicon glyphicon-pause"></span>
+          <span>Pause</span>
+        </div>
+      </button>
+		  <div class="pull-right">
+				<a class="btn btn-primary" ui-sref="editSong({ songId: song.id })">
+					<i class="glyphicon glyphicon-edit"></i>
+				</a>
+				<a class="btn btn-primary" confirm-delete title="song.title" confirmed-click="deleteSong()">
+					<i class="glyphicon glyphicon-trash"></i>
+				</a>
+			</div>
+		</h2>
+    <div id="song-detail" class="row">
+      <div class="col-md-4">
+        <div class="song-thumbnail lg">
+          <img ng-src="{{ song.thumbnail }}">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <form role="form" class="form-horizontal">
+          <div class="form-group">
+            <label for="title" class="control-label col-md-3">
+              Song title
+            </label>
+            <div class="col-md-9 label-detail">
+              {{ song.title }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="duration" class="control-label col-md-3">
+              Duration
+            </label>
+            <div class="col-md-9 label-detail">
+              {{ song.duration | secondsToDateTime | date:'m:ss' }}
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="artists" class="control-label col-md-3">
+              Artists
+            </label>
+            <div class="col-md-9 label-detail">
+              <span ng-repeat="artist in song.artists"><a ui-sref="viewArtist({ artistId: artist.id })">{{ artist.name }}</a><span ng-if="!$last">, </span></span>
+            </div>
+          </div>
+
+          <div class="form-group" ng-if="song.album">
+            <label for="album" class="control-label col-md-3">
+              Album
+            </label>
+            <div class="col-md-9 label-detail">
+              <a ui-sref="viewAlbum({ albumId: song.album.id })">{{ song.album.title }}</a>
+            </div>
+          </div>
+
+          <div class="form-group" ng-if="song.album">
+            <label for="release_date" class="control-label col-md-3">
+              Release date
+            </label>
+            <div class="col-md-9 label-detail">
+              {{song.album.release_date}}
+            </div>
+          </div>
+
+          <div class="form-group" ng-if="song.genres">
+            <label for="genres" class="control-label col-md-3">
+              Genres
+            </label>
+            <div class="col-md-9 label-detail">
+              <span ng-repeat="genre in song.genres"><a ui-sref="viewGenre({ genreId: genre.id })">{{ genre.name }}</a><span ng-if="!$last">, </span></span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+	</section>
+</div>
+
+    
