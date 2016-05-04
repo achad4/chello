@@ -1,7 +1,20 @@
 <div side-nav class="sidebar-nav">
 </div>
 <div class="main-content" ng-init="findOne()">
-	<section class="col-md-8 col-md-offset-2" ng-if="playlist">
+
+
+	<section class="col-md-8 col-md-offset-2" ng-if="playlist" style="display : inline-block;">
+		<div class="thumbnail_wrapper">
+    		<img ng-src="{{playlist.thumbnail}}" />
+  		</div>
+
+<!-- 		<a class="btn btn-primary" ui-sref="createPlaylist" style="width: 160px;">
+		    <span class="glyphicon glyphicon-plus"></span>
+	          New playlist
+	    </a> -->
+
+	</section>
+	<section class="col-md-8 col-md-offset-2" ng-if="playlist" style="display : inline-block;">
 		<h2 class="page-header">
 			<div class="pull-left">{{playlist.name}}</div>
 			<div style="position:relative; margin-left: 20px; display: inline-block; font-size: 14px;">
