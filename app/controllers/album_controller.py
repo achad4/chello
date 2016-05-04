@@ -2,10 +2,10 @@ from flask import g
 from sqlalchemy.exc import IntegrityError
 
 from app.controllers.artist_controller import ArtistController
-from app.controllers.genre_controller import GenreController
+# from app.controllers.genre_controller import GenreController
 
 artist_controller = ArtistController()
-genre_controller = GenreController()
+# genre_controller = GenreController()
 
 
 # custom exception for album
@@ -44,7 +44,7 @@ class AlbumController():
 		albums = []
 		for r in rows:
 			r_dict = dict(r)
-			r_dict['genres'] = genre_controller.get_genres_for_album(r.id)
+			# r_dict['genres'] = genre_controller.get_genres_for_album(r.id)
 			albums.append(r_dict)
 		return albums
 
@@ -91,7 +91,7 @@ class AlbumController():
 		for r in rows:
 			r_dict = dict(r)
 			r_dict['artists'] = artist_controller.get_artists_for_album(r.id)
-			r_dict['genres'] = genre_controller.get_genres_for_album(r.id)
+			# r_dict['genres'] = genre_controller.get_genres_for_album(r.id)
 			albums.append(r_dict)
 		return albums
 
@@ -109,7 +109,7 @@ class AlbumController():
 		for r in rows:
 			r_dict = dict(r)
 			r_dict['artists'] = artist_controller.get_artists_for_album(r.id)
-			r_dict['genres'] = genre_controller.get_genres_for_album(r.id)
+			# r_dict['genres'] = genre_controller.get_genres_for_album(r.id)
 			albums.append(r_dict)
 		return albums
 

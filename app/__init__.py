@@ -1,12 +1,5 @@
 #!/usr/bin/env python2.7
 
-"""
-Columbia's COMS W4111.001 Introduction to Databases
-James Hong (hh2473)
-David Kim (dk2651)
-
-Project 1 Part 3
-"""
 
 import os
 from sqlalchemy import *
@@ -32,18 +25,18 @@ from app.controllers.song_controller import SongController, SongException
 from app.controllers.country_controller import CountryController, CountryException
 from app.controllers.artist_controller import ArtistController, ArtistException
 from app.controllers.album_controller import AlbumController, AlbumException
-from app.controllers.genre_controller import GenreController, GenreException
+# from app.controllers.genre_controller import GenreController, GenreException
 
 
 # instantiate each controller
 authentication = Authentication()
 user_controller = UserController()
 playlist_controller = PlaylistController()
-song_controller = SongController()
+# song_controller = SongController()
 country_controller = CountryController()
 artist_controller = ArtistController()
 album_controller = AlbumController()
-genre_controller = GenreController()
+# genre_controller = GenreController()
 
 
 # create engine
@@ -96,7 +89,7 @@ def teardown_request(exception):
 @app.errorhandler(CountryException)
 @app.errorhandler(ArtistException)
 @app.errorhandler(AlbumException)
-@app.errorhandler(GenreException)
+# @app.errorhandler(GenreException)
 def handle_invalid_usage(error):
   response = jsonify(error.to_dict())
   response.status_code = error.status_code
@@ -318,47 +311,47 @@ def delete_song_from_playlist(playlist_id, song_id):
   playlist_controller.delete_song_from_playlist(user_id, playlist_id, song_id)
   return '', 200
 
-@app.route('/api/genres', methods=['GET'])
-@login_required
-def get_genres():
-  q = request.args.get('q')
-  if q:
-    genres = genre_controller.get_genres_for_keyword('%' + q.lower() + '%')
-  else:
-    genres = genre_controller.get_genres()
-  return jsonify({'genres': genres})
+# @app.route('/api/genres', methods=['GET'])
+# @login_required
+# def get_genres():
+#   q = request.args.get('q')
+#   if q:
+#     genres = genre_controller.get_genres_for_keyword('%' + q.lower() + '%')
+#   else:
+#     genres = genre_controller.get_genres()
+#   return jsonify({'genres': genres})
 
-@app.route('/api/genres/<genre_id>', methods=['GET'])
-@login_required
-def get_genre(genre_id):
-  genre = genre_controller.get_genre(genre_id)
-  if not genre:
-    abort(404)
-  genre['albums'] = album_controller.get_albums_for_genre(genre_id)
-  genre['songs'] = song_controller.get_songs_for_genre(genre_id)
+# @app.route('/api/genres/<genre_id>', methods=['GET'])
+# @login_required
+# def get_genre(genre_id):
+#   genre = genre_controller.get_genre(genre_id)
+#   if not genre:
+#     abort(404)
+#   genre['albums'] = album_controller.get_albums_for_genre(genre_id)
+#   genre['songs'] = song_controller.get_songs_for_genre(genre_id)
 
-  dict_result = {'genre': genre}
-  return json.dumps(dict_result, default=date_handler)
+#   dict_result = {'genre': genre}
+#   return json.dumps(dict_result, default=date_handler)
 
-@app.route('/api/genres', methods=['POST'])
-@login_required
-def create_genre():
-  name = request.json.get('name')
-  genre = genre_controller.create_genre(name)
-  return jsonify({'genre': genre})
+# @app.route('/api/genres', methods=['POST'])
+# @login_required
+# def create_genre():
+#   name = request.json.get('name')
+#   genre = genre_controller.create_genre(name)
+#   return jsonify({'genre': genre})
 
-@app.route('/api/genres/<genre_id>', methods=['PUT'])
-@login_required
-def update_genre(genre_id):
-  name = request.json.get('name')
-  genre = genre_controller.update_genre(genre_id, name)
-  return jsonify({'genre': genre})
+# @app.route('/api/genres/<genre_id>', methods=['PUT'])
+# @login_required
+# def update_genre(genre_id):
+#   name = request.json.get('name')
+#   genre = genre_controller.update_genre(genre_id, name)
+#   return jsonify({'genre': genre})
 
-@app.route('/api/genres/<genre_id>', methods=['DELETE'])
-@login_required
-def delete_genre(genre_id):
-  genre_controller.delete_genre(genre_id)
-  return '', 200
+# @app.route('/api/genres/<genre_id>', methods=['DELETE'])
+# @login_required
+# def delete_genre(genre_id):
+#   genre_controller.delete_genre(genre_id)
+#   return '', 200
 
 
 @app.route('/api/countries', methods=['GET'])
@@ -464,7 +457,7 @@ def get_album(album_id):
     album(404)
   album['songs'] = song_controller.get_songs_for_album(album_id)
   album['artists'] = artist_controller.get_artists_for_album(album_id)
-  album['genres'] = genre_controller.get_genres_for_album(album_id)
+  # album['genres'] = genre_controller.get_genres_for_album(album_id)
   dict_result = {'album': album}
   return json.dumps(dict_result, default=date_handler)
 
