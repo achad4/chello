@@ -8,7 +8,7 @@ decorator==4.0.9
 enum34==1.1.4
 Flask==0.10.1
 Flask-Login==0.2.11
-html5lib==0.999
+html5lib==0.99999999
 idna==2.1
 ipaddress==1.0.16
 itsdangerous==0.24
