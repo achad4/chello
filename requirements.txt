@@ -28,7 +28,7 @@ pyOpenSSL==16.0.0
 pyserial==2.6
 python-dateutil==2.5.2
 PyYAML==3.10
-requests==2.2.1
+requests==2.20.0
 six==1.10.0
 SQLAlchemy==0.7.9
 sqlalchemy-migrate==0.7.2
